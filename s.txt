@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Однопесенный сайт</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать на мой сайт!</h1>
+    <audio id="mySong" src="song.mp3"></audio>
+    <button id="playButton" style="display:none;">Нажмите для воспроизведения</button>
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById('mySong');
+            var playButton = document.getElementById('playButton');
+            audio.play().catch(error => {
+                console.log('Автовоспроизведение заблокировано: ', error);
+                playButton.style.display = 'block';
+                playButton.addEventListener('click', function() {
+                    audio.play();
+                });
+            });
+        };
+    </script>
+</body>
+</html>
